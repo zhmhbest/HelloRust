@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "clean"
+            ]
+        },
+        {
+            "label": "build.debug",
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "build"
+            ],
+            "dependsOn": ["clean"]
+        },
+        {
+            "label": "build.release",
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "build",
+                "--release"
+            ],
+            "dependsOn": ["clean"]
+        },
+    ]
+}

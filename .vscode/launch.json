@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "gdb",
+            "request": "launch",
+            "preLaunchTask": "build.debug",
+            "target": "${workspaceFolder}/target/debug/${workspaceFolderBasename}",
+            "cwd": "${workspaceFolder}/src"
+        },
+        {
+            "name": "Release",
+            "type": "gdb",
+            "request": "launch",
+            "preLaunchTask": "build.release",
+            "target": "${workspaceFolder}/target/release/${workspaceFolderBasename}",
+            "cwd": "${workspaceFolder}/src"
+        }
+    ]
+}
