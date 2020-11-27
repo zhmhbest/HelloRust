@@ -22,6 +22,19 @@ pub fn helloContition() {
     for i in 0..5 {
         println!("a[{}] = {}", i, a[i]);
     }
+    //
+    struct Color {
+        red: u8,
+        green: u8,
+        blue: u8,
+    }
+    for color in [
+        Color { red: 128, green: 255, blue: 90 },
+        Color { red: 0, green: 3, blue: 254 },
+        Color { red: 0, green: 0, blue: 0 },
+    ].iter() {
+        println!("Color: {} {} {}", color.red, color.green, color.blue);
+    }
 }
 
 
