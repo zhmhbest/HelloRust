@@ -1,6 +1,6 @@
 # HelloRust
 
-Rust学习笔记
+Rust学习笔记，参考自[Rust by Example](https://doc.rust-lang.org/rust-by-example/index.html)
 
 依赖的VSCode插件：`Rust`、`rust-analyzer`、`Native Debug`。
 
