@@ -67,4 +67,13 @@ pub fn helloDataType() {
     struct Color(u8, u8, u8);
     let black = Color(0, 0, 0);
     println!("{{ Color: {} {} {}}}", black.0, black.1, black.2);
+    // 枚举类型(C-like)
+    enum Fruit {
+        Apple = 1,
+        Banana = 2,
+        Watermelon = 3,
+    }
+    println!("Apple is {}", Fruit::Apple as i32);
+    println!("Banana is {}", Fruit::Banana as i32);
+    println!("Watermelon is {}", Fruit::Watermelon as i32);
 }
