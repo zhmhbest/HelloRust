@@ -1,0 +1,1 @@
+DEL /F /Q .\src\*.exe

@@ -20,16 +20,12 @@ mod mod_contition;
 mod mod_function;
 
 fn main() {
-    // // Line comments which go to the end of the line.
-    // /* Block comments which go to the closing delimiter. */
-    // /// Generate library docs for the following item.
-    // //! Generate library docs for the enclosing item.
-    mod_print::helloPrint();
-    use hello::hello; hello();
-    mod_variable::helloDefine();
-    mod_variable::helloDataType();
-    mod_contition::helloContition();
-    mod_contition::helloMatch();
-    mod_function::helloFn();
-    mod_function::helloLambda();
+    mod_print::main();
+    // use hello::hello; hello();
+    // mod_variable::helloDefine();
+    // mod_variable::helloDataType();
+    // mod_contition::helloContition();
+    // mod_contition::helloMatch();
+    // mod_function::helloFn();
+    // mod_function::helloLambda();
 }
