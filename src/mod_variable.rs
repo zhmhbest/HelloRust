@@ -82,11 +82,28 @@ fn demo_define() {
     let a = 222;
     println!("a = {} @{:p}", a, &a);
 
+    // 延迟绑定
+    let delay;
+    delay = 666;
+    // ready = 999; // cannot assign twice to immutable variable
+    println!("delay = {}", delay);
+
     // 可变变量
     let mut b = 123;
     println!("mut b = {} @{:p}", b, &b);
     b = 456; // 改变b的值
     println!("mut b = {} @{:p}", b, &b);
+
+    // 变量冻结
+    let mut freezing = 666;
+    println!("freezing = {}", freezing);
+    {
+        #[allow(unused_variables)]
+        let freezing = freezing;
+        // freezing = 555; // cannot assign twice to immutable variable
+    }
+    freezing = 999;
+    println!("freezing = {}", freezing);
 
     // 变量类型
     let c1: i32 = 999;
