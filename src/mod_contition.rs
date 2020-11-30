@@ -114,8 +114,40 @@ fn demo_match() {
     inspect(WebEvent::PageUnload);
 }
 
+fn demo_let() {
+    let optional = Some(7);
+    match optional {
+        Some(i) => {
+            println!("`{:?}`", i);
+        },
+        _ => {},
+    };
+    if let Some(i) = optional {
+        println!("If matched `{:?}`!", i);
+    }
+    while let Some(i) = optional {
+        println!("While matched `{:?}`!", i);
+        break;
+    }
+
+    #[allow(dead_code)]
+    enum Coin {
+        Penny,
+        Nickel,
+        Dime,
+        Quarter,
+    }
+    fn is_penny(coin : Coin) {
+        if let Coin::Penny = coin {
+            println!("A Penny!");
+        }
+    }
+    is_penny(Coin::Penny);
+}
+
 pub fn main() {
     demo_if();
     demo_loop();
     demo_match();
+    demo_let();
 }
