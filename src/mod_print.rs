@@ -23,17 +23,17 @@ pub fn main() {
         id: i64,
         name: String,
         age: i32,
-        gender: bool
+        gender: bool,
     }
-    let student = Student{
-        id: 9955845621, 
-        name: String::from("Peter"), 
-        age: 0x1a, 
-        gender: false
+    let student = Student {
+        id: 9955845621,
+        name: String::from("Peter"),
+        age: 0x1a,
+        gender: false,
     };
     println!("Hello {}!", student.name);
     println!("{0}'s name is {0}.", student.name);
-    println!("{yourname}'s name is {yourname}.", yourname=student.name);
+    println!("{yourname}'s name is {yourname}.", yourname = student.name);
 
     println!("{0}'s id is {1}.", student.name, student.id);
     println!("{0}'s id is {1:e}.", student.name, student.id);
@@ -48,11 +48,18 @@ pub fn main() {
     println!("Student Pointer @{:p}!", &student);
     println!("Student Debug   {:?}!", student);
     // 自定义结构体打印方式
-    use std::fmt::{self, Formatter, Display};
+    use std::fmt::{self, Display, Formatter};
     impl Display for Student {
         fn fmt(&self, f: &mut Formatter) -> fmt::Result {
             // return  write!(f, ...);e
-            write!(f, "学生{{学号:{0}, 姓名:{1}, 年龄:{2}, 性别:{3}}}", self.id, self.name, self.age, if self.gender {"男"} else {"女"})
+            write!(
+                f,
+                "学生{{学号:{0}, 姓名:{1}, 年龄:{2}, 性别:{3}}}",
+                self.id,
+                self.name,
+                self.age,
+                if self.gender { "男" } else { "女" }
+            )
         }
     }
     println!("Student Format  {}!", student);
