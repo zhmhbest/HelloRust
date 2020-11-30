@@ -16,6 +16,7 @@ fn demo_data_type() {
     let _: f64;
     let _: char;
     let _: bool; // true | false
+    println!("size(bool) = {}", std::mem::size_of_val(&true));
 }
 
 fn demo_data_struct() {
@@ -124,8 +125,82 @@ fn demo_define() {
     println!("shadow = {} @{:p}", shadow, &shadow);
 }
 
+fn demo_cast() {
+    const NPI: f64 = -3.1415926535897f64; // Literal
+    println!("NPI as f64 = {}", NPI);
+    println!("NPI as f32 = {}", NPI as f32);
+    println!("NPI as i32 = {}", NPI as i32);
+    println!("NPI as u32 = {}", NPI as u32);
+}
+
+fn demo_alias() {
+    #[allow(non_camel_case_types)]
+    type uint64_t = u64;
+    #[allow(non_camel_case_types)]
+    type uint32_t = u32;
+    let x = 0 as uint32_t;
+    let y = 0 as uint64_t;
+    println!("size(uint32_t) = {}", std::mem::size_of_val(&x));
+    println!("size(uint64_t) = {}", std::mem::size_of_val(&y));
+}
+
+fn demo_from_into() {
+    // 系统定义的From
+    println!("{}", String::from("hello"));
+
+    // use std::convert::From;
+    #[derive(Debug)]
+    struct Number {
+        value: i32,
+    }
+    impl From<i32> for Number {
+        fn from(item: i32) -> Self {
+            Number { value: item }
+        }
+    }
+    // The From trait allows for a type to define how to create itself from another type.
+    let num = Number::from(1111);
+    println!("num = {:?}", num);
+    // If you have implemented the From trait for your type, Into will call it when necessary.
+    let num: Number = 618.into();
+    println!("num = {:?}", num);
+
+    // TryFrom/TryInto traits are used for fallible conversions, and as such, return Results.
+    #[derive(Debug, PartialEq)]
+    struct EvenNumber(i32);
+    use std::convert::{TryFrom, TryInto};
+    impl TryFrom<i32> for EvenNumber {
+        type Error = ();
+        fn try_from(value: i32) -> Result<Self, Self::Error> {
+            if value % 2 == 0 {
+                Ok(EvenNumber(value))
+            } else {
+                Err(())
+            }
+        }
+    }
+    let r = EvenNumber::try_from(8);
+    if r.is_ok() {
+        let num = r.unwrap();
+        println!("num = {:?}", num);
+    }
+    let r = EvenNumber::try_from(9);
+    if r.is_ok() {
+        let num = r.unwrap();
+        println!("num = {:?}", num);
+    }
+    let r: Result<EvenNumber, ()> = 6i32.try_into();
+    if r.is_ok() {
+        let num = r.unwrap();
+        println!("num = {:?}", num);
+    }
+}
+
 pub fn main() {
     demo_data_type();
     demo_data_struct();
     demo_define();
+    demo_cast();
+    demo_alias();
+    demo_from_into();
 }
