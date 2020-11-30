@@ -1,23 +1,23 @@
 #![allow(non_snake_case)]
 
-// 自定义模块
-mod hello {
-    // private
-    fn say_hello() {
-        println!("Hello!");
-    }
-    // public
-    pub fn hello() {
-        // 调用私有方法
-        say_hello();
-    }
-}
+// // 自定义模块
+// mod hello {
+//     // private
+//     fn say_hello() {
+//         println!("Hello!");
+//     }
+//     // public
+//     pub fn hello() {
+//         // 调用私有方法
+//         say_hello();
+//     }
+// }
 
-// 引入外部模块
+// // 引入外部模块
 mod mod_print;
 mod mod_variable;
-mod mod_contition;
-mod mod_function;
+// mod mod_contition;
+// mod mod_function;
 
 fn main() {
     mod_print::main();

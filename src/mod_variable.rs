@@ -31,19 +31,14 @@ fn demo_data_struct() {
     println!("tup = {:?}", tup);
     // Struct
     #[derive(Debug)]
-    struct Student {
-        id: i64,
-        name: String,
-        age: i32,
-        gender: bool,
+    struct Point {
+        x: f32,
+        y: f32,
     }
-    let student = Student {
-        id: 9955845621,
-        name: String::from("Peter"),
-        age: 0x1a,
-        gender: false,
-    };
-    println!("student = {:?}", student);
+    let point = Point { x: 10.3, y: 0.4 };
+    println!("point = {:?}", point);
+    let another_point = Point { y: 6.18, ..point };
+    println!("another_point = {:?}", another_point);
 
     // Tuple Struct
     #[derive(Debug)]
@@ -58,8 +53,11 @@ fn demo_data_struct() {
         Watermelon,
     }
     println!("Fruit::Apple is {}", Fruit::Apple as i32);
-    println!("Fruit::Banana is {}", Fruit::Banana as i32);
-    println!("Fruit::Watermelon is {}", Fruit::Watermelon as i32);
+    // use Fruit::Banana;
+    // use Fruit::{Apple, Banana, Watermelon};
+    use Fruit::*;
+    println!("Fruit::Banana is {}", Banana as i32);
+    println!("Fruit::Watermelon is {}", Watermelon as i32);
 
     // Enums
     #[allow(dead_code)]
@@ -70,6 +68,7 @@ fn demo_data_struct() {
         Paste(String),
         Click { x: i64, y: i64 },
     }
+    // 需要使用match匹配
 }
 
 fn demo_define() {
