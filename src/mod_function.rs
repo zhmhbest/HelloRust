@@ -24,12 +24,28 @@ fn demo_lambda() {
     // lambda(省略返回类型)
     let ladd2 = |x: i32, y: i32| x + y;
     println!("ladd2(2, 3) = {}", ladd2(2, 3));
-    // lambda(省略变量类型)
+    // lambda(省略变量类型、返回类型)
     let ladd3 = |x, y| x + y;
     println!("ladd3(2, 3) = {}", ladd3(2, 3));
+}
+
+fn demo_method() {
+    #[derive(Debug)]
+    struct Point {
+        x: f64,
+        y: f64,
+    }
+    impl Point {
+        fn new(x: f64, y: f64) -> Point {
+            Point { x: x, y: y }
+        }
+    }
+    let point = Point::new(32f64, 64f64);
+    println!("{:?}", point);
 }
 
 pub fn main() {
     demo_simply();
     demo_lambda();
+    demo_method();
 }
