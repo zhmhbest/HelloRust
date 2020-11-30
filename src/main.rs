@@ -21,6 +21,7 @@ mod mod_function;
 
 fn main() {
     mod_print::main();
+    mod_variable::main();
     // use hello::hello; hello();
     // mod_variable::helloDefine();
     // mod_variable::helloDataType();
