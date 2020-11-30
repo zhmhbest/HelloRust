@@ -1,6 +1,11 @@
 # HelloRust
 
-Rust学习笔记，参考自[Rust by Example](https://doc.rust-lang.org/rust-by-example/index.html)
+Rust学习笔记
+
+参考自
+
+- [Rust by Example](https://doc.rust-lang.org/rust-by-example/index.html)
+- [Rust 程序设计语言](https://kaisery.github.io/trpl-zh-cn/title-page.html)
 
 依赖的VSCode插件：`Rust`、`rust-analyzer`、`Native Debug`。
 
